@@ -8,21 +8,36 @@ var todoSchema = new mongoose.Schema({
     complete: { type: Boolean, required: true, default: false },
 });
 
-var Todos = mongoose.model('todo', todoSchema);
+var Todo = mongoose.model('todo', todoSchema);
 
 
 // to get all todo items:
 router.get('/', function (req, res, next) {
-    Todos.find({})
+    Todo.find({})
         .then((todos) => {
             res.send(todos);
         })
         .catch(next);
 });
 
+// to get a todo by id:
+router.get('/:todoId', function (req, res, next) {
+    var todoId = req.params.todoId;
+    Todo.findById(todoId)
+        .then((todo) => {
+            if (todo) {
+                res.send(todo);
+            }
+            else{
+                next({message: 'Todo Not Found'});
+            }
+        })
+        .catch(next);
+});
+
 // to create a todo item
 router.post('/', function (req, res, next) {
-    Todos.create(req.body)
+    Todo.create(req.body)
         .then((todo) => {
             res.send(todo);
         })
@@ -34,9 +49,9 @@ router.put('/:todoId', function (req, res, next) {
     var todoId = req.params.todoId;
     var updatedTodoObj = req.body;
 
-    Todos.findByIdAndUpdate(todoId, updatedTodoObj)
+    Todo.findByIdAndUpdate(todoId, updatedTodoObj)
         .then((todo) => {
-            res.send({message: 'Successfully Updated Todo Item'});
+            res.send({ message: 'Successfully Updated Todo Item' });
         })
         .catch(next);
 });
@@ -45,8 +60,8 @@ router.put('/:todoId', function (req, res, next) {
 router.delete('/:todoId', (req, res, next) => {
     var todoId = req.params.todoId;
     Todo.findByIdAndRemove(todoId)
-        .then((todo) => {
-            res.send({message: 'Todo Deleted Successfully'});
+        .then(todo => {
+            res.send({ message: 'Todo Deleted Successfully' });
         })
         .catch(next);
 });
@@ -61,11 +76,11 @@ router.use(defaultErrorHandler);
 
 function defaultErrorHandler(err, req, res, next) {
 
-    if(req.xhr) {
-        res.json({success: false, error: err});
+    if (req.xhr) {
+        res.json({ success: false, error: err });
     }
     else {
-        res.json({success: false, error: err.message});
+        res.json({ success: false, error: err.message });
     }
 }
 
