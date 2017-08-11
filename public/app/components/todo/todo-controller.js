@@ -8,17 +8,17 @@ function TodoController() {
 	// **** HINT: Everytime you make a change to any todo don't forget to get the todo list again
 	var todoService = new TodoService()
 
-	// Use this getTodos function as your callback for all other edits
-	function getTodos(){
-		//FYI DONT EDIT ME :)
-		todoService.getTodos(draw)
-	}
-
 	function draw(todos) {
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
 		var template = ''
 		//DONT FORGET TO LOOP
+	}
+
+	// Use this getTodos function as your callback for all other edits
+	function getTodos() {
+		//FYI DONT EDIT ME :)
+		todoService.getTodos(draw)
 	}
 
 	this.addTodoFromForm = function (e) {
@@ -33,7 +33,7 @@ function TodoController() {
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
 		//YOU SHOULDN'T NEED TO CHANGE THIS
 		todoService.addTodo(todo, getTodos)
-		                         //^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
+		//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
 	}
 
 	this.toggleTodoStatus = function (todoId) {

@@ -1,8 +1,15 @@
-function QuoteService(){
+function QuoteService() {
 
-	var qs = new QuoteService()
+	var quoteService = new QuoteService()
 
-	qs.getQuote(function(quote){
+	function drawQuote(quote) {
+		// write draw quote function here
+	}
+
+	// this calls the get quote method upon instantiation. We only need to do this once per refresh so it doesn't need to be in a public method.
+	quoteService.getQuote(function (quote) {
 		console.log('What is the quote', quote)
+		drawQutoe(quote);
 	})
+
 }

@@ -39,6 +39,7 @@ function TodoService() {
 		})
 			.then((message) => {
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
+				res.send({message: 'todo status changed successfully'})
 				getTodos() // <-- LEAVE ME ALONE I WORK LIKE THIS
 			})
 			.fail(logError) // BECAUSE AJAX IS A UNIQUE SNOWFLAKE AND HAS TO BE DIFFERENT YOU CANT USE .catch
