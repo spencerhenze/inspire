@@ -1,16 +1,29 @@
 function WeatherService() {
-	var url = '//bcw-getter.herokuapp.com/?url=';
-	var url2 = 'http://api.openweathermap.org/data/2.5/weather?q=boise&&APPID=bd82255fd0a21fa1238699b9eda2ee35'
-	var apiUrl = url + encodeURIComponent(url2);
+	var lat = '', long = '';
+	var apiUrl = '';
 
-	this.getWeather = function (callWhenDone) {
-		$.get(apiUrl, function (res) {
-			res = JSON.parse(res)
-			localStorage.setItem('weather', JSON.stringify(res)) 
-			// HEY FUN FACT 
-			// Have you ever wanted to know the temperature measured in kelvin?
-			// You should probably convert the temperature data
-			callWhenDone(res);
-		})
+	navigator.geolocation.getCurrentPosition(assignLocation)
+
+
+
+
+	function assignLocation(position) {
+		lat = position.coords.latitude;
+		long = position.coords.longitude;
+		apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&&APPID=bd82255fd0a21fa1238699b9eda2ee35`
 	}
+
+	this.getWeather = function (draw) {
+		// debugger
+
+		$.get(apiUrl).then((res) => {
+			console.log(res)
+
+			// res = JSON.parse(res)
+			localStorage.setItem('weatherData', JSON.stringify(res))
+			draw(res);
+		})
+
+	}
+
 }

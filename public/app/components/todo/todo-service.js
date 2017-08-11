@@ -28,17 +28,18 @@ function TodoService() {
 		var todoItem = todoList.find((todo) => todo._id == todoId);
 		//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
 		// what to do if nothing is found:
-		if (!todo) {
+		if (!todoItem) {
 			return logError('No Todo Was Found');
 		}
-		todo.completed = !todo.completed;
+
+		todoItem.complete = !todoItem.complete
 
 		//STEP 3: Here is that weird Ajax request because $.put doesn't exist
 		$.ajax({
 			method: 'PUT',
 			contentType: 'application/json',
 			url: '/api/todos/' + todoId,
-			data: JSON.stringify(todo)
+			data: JSON.stringify(todoItem)
 		})
 			.then((message) => {
 				//DO YOU WANT TO DO ANYTHING WITH THIS?

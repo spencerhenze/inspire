@@ -14,15 +14,22 @@ function TodoController() {
 		//DONT FORGET TO LOOP
 
 		todosArr.forEach(todo => {
+			debugger
 			//strike out completed item's body properties
 			if (todo.complete == true){
 				todo.body = `<del>${todo.body}</del>`
 			}
 
+			// <input type="checkbox" name="${todo.id}" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">
 			template += `
-				blah blah blah HTML
+				<label><input type="checkbox" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">${todo.body}</label>
+				<button class="btn btn-danger" type="button" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Delete</button>
 			`
 		})
+		// <i class="fa fa-trash" aria-hidden="true" type="button" onclick="app.controllers.todoController.removeTodo(${todo._id})"></i>
+		console.log(template)
+
+		document.getElementById('todo').innerHTML = template;
 	}
 
 
@@ -32,11 +39,12 @@ function TodoController() {
 		todoService.getTodos(draw)
 	}
 
+
 	this.addTodoFromForm = function (e) {
 		e.preventDefault() // <-- hey this time its a freebie don't forget this
 		// TAKE THE INFORMATION FORM THE FORM
 		var form = e.target
-		var newTodo = form.todo.value;
+		var newTodo = form.todoBody.value;
 		var todo = {
 			body: newTodo
 		}
@@ -50,6 +58,7 @@ function TodoController() {
 	}
 
 	this.toggleTodoStatus = function (todoId) {
+		debugger
 		// asks the service to edit the todo status
 		todoService.toggleTodoStatus(todoId, getTodos)
 		// YEP THATS IT FOR ME

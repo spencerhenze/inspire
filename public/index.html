@@ -2,25 +2,34 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Inspire</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="assets/css/style.css">
+	<title>Inspire</title>
 </head>
 
 <body id="body">
 	<div id="background-image"></div>
-	
+
 	<div id="weather">
 		Your Weather Template
+
 	</div>
 
 	<div id="quote">
 		The Quote
 	</div>
 
+	<!--todo list  -->
 	<div id="todo">
-		<form onsubmit=""></form>
-		A Todo List
+		<!--insert todo list here  -->
 	</div>
+	<!--todo input  -->
+	<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+		<input type="text" name="todoBody" placeholder="what would you like to do?">
+		<button class="btn btn-primary" type="submit">Add</button>
+	</form>
+
 
 
 
