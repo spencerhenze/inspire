@@ -9,7 +9,6 @@ function ImageService() {
 			res = JSON.parse(res)
 			console.log('Image Data:', res)
 			// response is a single object
-			debugger
 			callWhenDone(res)
 		})
 	}
