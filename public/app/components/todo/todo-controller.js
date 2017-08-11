@@ -12,7 +12,19 @@ function TodoController() {
 		//BUILD YOUR TODO TEMPLATE HERE
 		var template = ''
 		//DONT FORGET TO LOOP
+
+		todosArr.forEach(todo => {
+			//strike out completed item's body properties
+			if (todo.complete == true){
+				todo.body = `<del>${todo.body}</del>`
+			}
+
+			template += `
+				blah blah blah HTML
+			`
+		})
 	}
+
 
 	// Use this getTodos function as your callback for all other edits
 	function getTodos() {
