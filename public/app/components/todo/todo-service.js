@@ -13,14 +13,14 @@ function TodoService() {
 				todoList = todos // <-- WHY IS THIS IMPORTANT???? -- it reassigns the array to the updated data
 				draw(todoList) // <-- WHERE DOES THIS DRAW FUNCTION COME FROM??? -- callback function passed from the controller. 
 			})
-			.catch(logError)
+			.fail(logError)
 	}
 
 	this.addTodo = function (todo, getTodos) {
 		// WHAT IS THIS FOR???  -- writing new todo items to the db
 		$.post('/api/todos', todo)
 			.then(getTodos) // <-- DO NOT CHANGE THIS IT WORKS BUT DO YOU KNOW WHY?
-			.catch(logError)
+			.fail(logError)
 	}
 
 	this.toggleTodoStatus = function (todoId, getTodos) {
