@@ -14,7 +14,6 @@ function TodoController() {
 		//DONT FORGET TO LOOP
 
 		todosArr.forEach(todo => {
-			debugger
 			//strike out completed item's body properties
 			if (todo.complete == true){
 				todo.body = `<del>${todo.body}</del>`
@@ -58,7 +57,6 @@ function TodoController() {
 	}
 
 	this.toggleTodoStatus = function (todoId) {
-		debugger
 		// asks the service to edit the todo status
 		todoService.toggleTodoStatus(todoId, getTodos)
 		// YEP THATS IT FOR ME

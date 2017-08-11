@@ -1,29 +1,29 @@
 function WeatherService() {
-	var lat = '', long = '';
+	var lat = '' 
+	var long = '';
 	var apiUrl = '';
 
-	navigator.geolocation.getCurrentPosition(assignLocation)
 
 
 
 
-	function assignLocation(position) {
+	function assignLocation(position, draw) {
 		lat = position.coords.latitude;
 		long = position.coords.longitude;
 		apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&&APPID=bd82255fd0a21fa1238699b9eda2ee35`
-	}
-
-	this.getWeather = function (draw) {
-		// debugger
-
 		$.get(apiUrl).then((res) => {
 			console.log(res)
-
-			// res = JSON.parse(res)
 			localStorage.setItem('weatherData', JSON.stringify(res))
 			draw(res);
 		})
+	}
 
+	this.getWeather = function (draw) {
+		navigator.geolocation.getCurrentPosition(position => {
+			assignLocation(position, draw)
+		}, error => {
+			console.log("error: ", error);
+		})
 	}
 
 }
