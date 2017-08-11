@@ -1,4 +1,4 @@
-function QuoteService() {
+function QuoteController() {
 
 	var quoteService = new QuoteService()
 
