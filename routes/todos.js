@@ -10,7 +10,64 @@ var todoSchema = new mongoose.Schema({
 
 var Todos = mongoose.model('todo', todoSchema);
 
-//add get, post, put?, and delete functions here:
+
+// to get all todo items:
+router.get('/', function (req, res, next) {
+    Todos.find({})
+        .then((todos) => {
+            res.send(todos);
+        })
+        .catch(next);
+});
+
+// to create a todo item
+router.post('/', function (req, res, next) {
+    Todos.create(req.body)
+        .then((todo) => {
+            res.send(todo);
+        })
+        .catch(next);
+});
+
+// to update a todo item
+router.put('/:todoId', function (req, res, next) {
+    var todoId = req.params.todoId;
+    var updatedTodoObj = req.body;
+
+    Todos.findByIdAndUpdate(todoId, updatedTodoObj)
+        .then((todo) => {
+            res.send({message: 'Successfully Updated Todo Item'});
+        })
+        .catch(next);
+});
+
+// to delete a todo item
+router.delete('/:todoId', (req, res, next) => {
+    var todoId = req.params.todoId;
+    Todo.findByIdAndRemove(todoId)
+        .then((todo) => {
+            res.send({message: 'Todo Deleted Successfully'});
+        })
+        .catch(next);
+});
+
+
+
+
+
+
+
+router.use(defaultErrorHandler);
+
+function defaultErrorHandler(err, req, res, next) {
+
+    if(req.xhr) {
+        res.json({success: false, error: err});
+    }
+    else {
+        res.json({success: false, error: err.message});
+    }
+}
 
 
 module.exports = router;

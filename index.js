@@ -17,7 +17,7 @@ server.use(expressSanitizer());
 
 
 //register your todos routes as api/routes
-server.use('/api/todo', todoRouter);
+server.use('/api/todos', todoRouter);
 
 
 
