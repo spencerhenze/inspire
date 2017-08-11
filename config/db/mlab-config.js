@@ -14,4 +14,4 @@ connection.on('error', (err) => {
 
 connection.once('open', () => {
     console.log('SUCCESSFULLY CONNECTED TO MLAB')
-})
+});

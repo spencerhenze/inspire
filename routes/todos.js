@@ -4,7 +4,8 @@ var router = express.Router();
 var mongoose = require('mongoose');
 
 var todoSchema = new mongoose.Schema({
-    // TODO: finish schema
+    todo: { type: String, required: true },
+    status: { type: Boolean, required: true, default: false },
 });
 
 var Todos = mongoose.model('todo', todoSchema);
