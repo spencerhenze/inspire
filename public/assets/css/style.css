@@ -1,12 +1,12 @@
-/* *{
+ /* *{
     outline: 1px solid red;
-} */
+}  */
 
 body{
     background-size: cover;
     /* background-attachment:fixed; */
     background-repeat: no-repeat;
-    overflow: hidden;
+    overflow: hidden; 
     color: white;
 }
 
@@ -14,6 +14,8 @@ body{
     display: flex;
     justify-content: flex-end; 
 }
+
+
 
 .middle-row {
     height: 60vh;
@@ -33,6 +35,13 @@ body{
     font-family: 'Open Sans', sans-serif;
     font-size: 5rem;
     text-align: center;
+}
+
+#namelink {
+    color: white;
+}
+#namelink:hover {
+    color: gray;
 }
 
 .name-input-control {
@@ -72,6 +81,7 @@ body{
 
 .todo-input {
     width: 200px;
+    color: black;
 }
 
 .todo-item {

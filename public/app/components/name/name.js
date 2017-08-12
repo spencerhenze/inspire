@@ -17,7 +17,7 @@ function drawName(name) {
         timeOfDay = 'evening';
     }
 
-    template = `<h2>Good ${timeOfDay}, ${name}</h2>`
+    template = `<h2>Good ${timeOfDay}, <a href="javascript:void(0)" id="namelink" onclick="resetName()">${name}</a></h2>`
 
     document.getElementById('name-display').innerHTML = template;
 }
@@ -52,6 +52,11 @@ function getName() {
     else {
         drawNameForm();
     }
+}
+
+function resetName(){
+    localStorage.removeItem('user-name');
+    getName();
 }
 
 getName();
