@@ -66,7 +66,6 @@ function TodoController() {
 	}
 
 	this.toggleTodoStatus = function (todoId) {
-		debugger
 
 		// asks the service to edit the todo status
 		todoService.toggleTodoStatus(todoId, getTodos)
