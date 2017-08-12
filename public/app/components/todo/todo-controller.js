@@ -4,8 +4,20 @@ function TodoController() {
 	var showComplete = false;
 
 
-	function draw(todosArr) {
+	function drawShowHideButton() {
+		var showHideTemplate = ''
+		if (showComplete === true) {
+			showHideTemplate = `<a href="javascript:void(0)" class="show-complete-button" onclick="app.controllers.todoController.toggleShowHide()"><p>Hide Completed</p></a>`
+		}  // if user chooses to hide completed items: 
+		else if (showComplete === false) {
+			// only append the todo item if the complete property is false
+			showHideTemplate = `<a href="javascript:void(0)" class="show-complete-button" onclick="app.controllers.todoController.toggleShowHide()"><p>Show Completed</p></a>`
+		}
+		document.getElementById('show-hide-button').innerHTML = showHideTemplate;
+	}
 
+	function draw(todosArr) {
+		drawShowHideButton();
 
 		var todoCount = 0;
 
@@ -30,6 +42,7 @@ function TodoController() {
 			}
 			//if user chooses to show completed items, append the item:
 			if (showComplete === true) {
+				showHideTemplate = `<a href="javascript:void(0)" class="show-complete-button" onclick="app.controllers.todoController.toggleShowHide()"><p>Hide Completed</p></a>`
 				template += `
 				<li class = "todo-item">
 					<a href="javascript:void(0)" data-toggle="tooltip" title="toggleDone" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"><i id="${toggleIconId}"class="fa fa-check-circle-o toggle-icon"></i></a>
@@ -37,10 +50,12 @@ function TodoController() {
 					<a href="javascript:void(0)" onclick="app.controllers.todoController.removeTodo('${todo._id}')"><i class="fa fa-trash delete-icon"></i></a>
 				</li>
 			`
+
 			}  // if user chooses to hide completed items: 
 			else if (showComplete === false) {
 				// only append the todo item if the complete property is false
 				if (todo.complete == false) {
+					showHideTemplate = `<a href="javascript:void(0)" class="show-complete-button" onclick="app.controllers.todoController.toggleShowHide()"><p>Show Completed</p></a>`
 					template += `
 						<li class = "todo-item">
 							<a href="javascript:void(0)" data-toggle="tooltip" title="toggleDone" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"><i id="${toggleIconId}"class="fa fa-check-circle-o toggle-icon"></i></a>
@@ -51,9 +66,6 @@ function TodoController() {
 				}
 				// else { continue; }
 			}
-
-
-
 		})
 
 		template += '</ul>'
@@ -64,6 +76,7 @@ function TodoController() {
 		//write the count because the variable wouldn't update after adding it to the top of the previous template
 		document.getElementById('todo-count').innerHTML = `<p>Things to do: ${todoCount}</p>`
 	}
+
 
 
 	// Use this getTodos function as your callback for all other edits

@@ -5,15 +5,15 @@ function QuoteController() {
 
 	function drawQuote(quote) {
 		if (showAuthor == false) {
-			template = `<p>${quote.quote}</p>`
+			template = `<p class="quote">${quote.quote}</p>`
 		}
 		else if (showAuthor == true) {
 			template = `
-				<p>${quote.quote}</p>
-				<p><em>-${quote.author}</em></p>
+				<p class="quote">${quote.quote}</p>
+				<p class="quote"><em>-${quote.author}</em></p>
 			`
 		}
-		
+
 		document.getElementById('quote').innerHTML = template;
 	}
 

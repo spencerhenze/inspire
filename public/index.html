@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	 crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<title>Inspire</title>
 </head>
@@ -25,6 +26,8 @@
 			<div class="col-xs-12 middle-row">
 				<div class="clock-container">
 					<h1 id="clock" class="clock-display"></h1>
+					<!--TODO: make this dynamic or take it out  -->
+					<h2 class="name-display">Good Morning, Spencer</h2>
 				</div>
 			</div>
 		</div>
@@ -43,7 +46,9 @@
 				<!--todo list  -->
 				<div class="pane todo-pane">
 					<div id="todo-count"></div>
-					<button type="button" class="show-complete-button" onclick="app.controllers.todoController.toggleShowHide()">show/hide completed</button>
+					<div id="show-hide-button"></div>
+					<!-- <a href="javascript:void(0)" class="show-complete-button" onclick="app.controllers.todoController.toggleShowHide()"><p>Show Completed</p></a> -->
+					 <!-- <button type="button" class="show-complete-button" onclick="app.controllers.todoController.toggleShowHide()">show/hide completed</button>  -->
 					<div id="todo"></div>
 					<!--todo input  -->
 					<div class="todo-form-wrapper">
