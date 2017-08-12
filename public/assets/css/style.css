@@ -23,3 +23,7 @@
     list-style: none;
     padding: 0;
 }
+
+.toggle-icon {
+    font-size: 2rem;
+}
