@@ -50,7 +50,7 @@ function TodoService() {
 			data: JSON.stringify(todoItem)
 		})
 			.then(getTodos)
-				//DO YOU WANT TO DO ANYTHING WITH THIS?
+			//DO YOU WANT TO DO ANYTHING WITH THIS?
 
 			.fail(logError) // BECAUSE AJAX IS A UNIQUE SNOWFLAKE AND HAS TO BE DIFFERENT YOU CANT USE .catch
 	}
@@ -60,10 +60,11 @@ function TodoService() {
 			contentType: 'application/json',
 			method: 'DELETE',
 			url: '/api/todos/' + todoId
-		}) 
+		})
 			.then(getTodos)
 			.fail(next)
 	}
+
 
 
 

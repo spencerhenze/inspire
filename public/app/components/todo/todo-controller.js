@@ -1,10 +1,12 @@
 function TodoController() {
-	
+
 	var todoService = new TodoService()
+	var showComplete = false;
+
 
 	function draw(todosArr) {
 
-		
+
 		var todoCount = 0;
 
 		var template = `
@@ -24,16 +26,34 @@ function TodoController() {
 			}
 			if (todo.complete == false) {
 				readout = todo.body;
-				todoCount ++;
+				todoCount++;
 			}
-
-			template += `
+			//if user chooses to show completed items, append the item:
+			if (showComplete === true) {
+				template += `
 				<li class = "todo-item">
 					<a href="javascript:void(0)" data-toggle="tooltip" title="toggleDone" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"><i id="${toggleIconId}"class="fa fa-check-circle-o toggle-icon"></i></a>
 					<p class="todo-text">${readout}</p>
 					<a href="javascript:void(0)" onclick="app.controllers.todoController.removeTodo('${todo._id}')"><i class="fa fa-trash delete-icon"></i></a>
 				</li>
 			`
+			}  // if user chooses to hide completed items: 
+			else if (showComplete === false) {
+				// only append the todo item if the complete property is false
+				if (todo.complete == false) {
+					template += `
+						<li class = "todo-item">
+							<a href="javascript:void(0)" data-toggle="tooltip" title="toggleDone" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"><i id="${toggleIconId}"class="fa fa-check-circle-o toggle-icon"></i></a>
+							<p class="todo-text">${readout}</p>
+							<a href="javascript:void(0)" onclick="app.controllers.todoController.removeTodo('${todo._id}')"><i class="fa fa-trash delete-icon"></i></a>
+						</li>
+					`
+				}
+				// else { continue; }
+			}
+
+
+
 		})
 
 		template += '</ul>'
@@ -41,7 +61,7 @@ function TodoController() {
 		console.log(template)
 
 		document.getElementById('todo').innerHTML = template;
-		iconIndex ++;
+		iconIndex++;
 
 		//write the count because the variable wouldn't update after adding it to the top of the previous template
 		document.getElementById('todo-count').innerHTML = `<p>Things to do: ${todoCount}</p>`
@@ -83,6 +103,16 @@ function TodoController() {
 		// ask the service to run the remove todo with this id
 		todoService.removeTodo(todoId, getTodos);
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
+	}
+
+	this.toggleShowHide = function () {
+		if (showComplete == true) {
+			showComplete = false;
+		}
+		else if (showComplete == false) {
+			showComplete = true;
+		}
+		getTodos();
 	}
 
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
