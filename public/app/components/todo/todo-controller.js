@@ -1,16 +1,16 @@
 function TodoController() {
-	// You will need four methods
-	// getTodos should request your api/todos and give an array of todos to your callback fn
-	// addTodo takes in a todo and posts it to the server
-	// toggleTodoStatus takes in a todo marks its status as completed and puts it to the server
-	// removeTodo takes in a todoId and sends a delete request to the server
-	// **** HINT: Everytime you make a change to any todo don't forget to get the todo list again
+	
 	var todoService = new TodoService()
 
 	function draw(todosArr) {
-		//WHAT IS MY PURPOSE?
-		//BUILD YOUR TODO TEMPLATE HERE
-		var template = '<ul class="no-bullets">'
+
+		
+		var todoCount = 0;
+
+		var template = `
+			<ul class="no-bullets">
+		`
+
 		//DONT FORGET TO LOOP
 		var iconIndex = 0
 		var toggleIconId = 'TI' + iconIndex;
@@ -24,12 +24,9 @@ function TodoController() {
 			}
 			if (todo.complete == false) {
 				readout = todo.body;
+				todoCount ++;
 			}
 
-			// <input type="checkbox" name="${todo.id}" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">
-			// <label><input type="checkbox" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">${readout}</label>
-			// <button type="button" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">Toggle Done</button>
-			// <button class="btn btn-danger" type="button" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Delete</button>
 			template += `
 				<li class = "todo-item">
 					<a href="javascript:void(0)" data-toggle="tooltip" title="toggleDone" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"><i id="${toggleIconId}"class="fa fa-check-circle-o toggle-icon"></i></a>
@@ -40,11 +37,14 @@ function TodoController() {
 		})
 
 		template += '</ul>'
-		// <i class="fa fa-trash" aria-hidden="true" type="button" onclick="app.controllers.todoController.removeTodo(${todo._id})"></i>
+
 		console.log(template)
 
 		document.getElementById('todo').innerHTML = template;
 		iconIndex ++;
+
+		//write the count because the variable wouldn't update after adding it to the top of the previous template
+		document.getElementById('todo-count').innerHTML = `<p>Things to do: ${todoCount}</p>`
 	}
 
 
