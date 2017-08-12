@@ -29,10 +29,20 @@ body{
     text-align: center;
 }
 
-.name-display {
+#name-display {
     font-family: 'Open Sans', sans-serif;
     font-size: 5rem;
     text-align: center;
+}
+
+.name-input-control {
+    background: transparent;
+    color: white;
+    border: none;
+}
+
+.name-input-control::placeholder{
+    color: white;
 }
 
 

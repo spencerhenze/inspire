@@ -24,12 +24,6 @@ function WeatherController() {
 		document.getElementById('weather').innerHTML = template;
 	}
 
-	// again, this calls the function upon instantiation and only needs to run once.
-	// weatherService.getWeather(function (weather) {
-		//What can you do with this weather object? -draw it!
-		// drawWeather(weather);
-	// })
-
 	getWeather();
 
 }
