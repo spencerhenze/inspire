@@ -10,7 +10,7 @@ function TodoController() {
 	function draw(todosArr) {
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
-		var template = ''
+		var template = '<ul class="no-bullets">'
 		//DONT FORGET TO LOOP
 
 		todosArr.forEach(todo => {
@@ -27,13 +27,15 @@ function TodoController() {
 			// <input type="checkbox" name="${todo.id}" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">
 			// <label><input type="checkbox" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">${readout}</label>
 			template += `
-				<div class = todo-item>
+				<li class = "todo-item">
 					<button type="button" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">Toggle Done</button>
 					<p>${readout}</p>
 					<button class="btn btn-danger" type="button" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Delete</button>
-				</div>
+				</li>
 			`
 		})
+
+		template += '</ul>'
 		// <i class="fa fa-trash" aria-hidden="true" type="button" onclick="app.controllers.todoController.removeTodo(${todo._id})"></i>
 		console.log(template)
 

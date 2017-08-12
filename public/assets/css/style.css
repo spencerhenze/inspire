@@ -1,3 +1,25 @@
 .todo-item {
     display: flex;
 }
+
+.pane {
+    max-width: 400px;
+    background: rgba(15,15,15,.925);
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+    text-shadow: none;
+    color: white;
+}
+
+.todo-pane {
+    width: 300px;
+    text-align: left;
+    -webkit-transition: all .2s ease-out;
+    overflow-y: hidden;
+}
+
+.no-bullets{
+    list-style: none;
+    padding: 0;
+}
