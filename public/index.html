@@ -2,7 +2,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	 crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="assets/css/style.css">
@@ -10,38 +10,59 @@
 </head>
 
 <body id="body" onload="myClock()">
-	<div id="background-image"></div>
-
-	<div id="weather">
-		Your Weather Template
-
-	</div>
-
-	<div class="clock-container">
-		<h1 id="clock"></h1>
-	</div>
-
-	<div id="quote">
-		The Quote
-	</div>
-
-	<!--todo list  -->
-	<div class="pane todo-pane">
-		<div id="todo-count"></div>
-		<button type="button" onclick="app.controllers.todoController.toggleShowHide()">show/hide completed</button>
-		<div id="todo">
-			<!--insert todo list here  -->
+	<div class="container-fluid">
+		<!--top row  -->
+		<div class="row">
+			<div class="col-xs-12 top-row">
+				<div id="weather">
+					Your Weather Template
+				</div>
+			</div>
 		</div>
-		<!--todo input  -->
-		<div class="todo-form-wrapper">
-			<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
-				<input type="text" class="todo-input" name="todoBody" placeholder="what would you like to do?">
-				<button class="btn btn-primary" type="submit">Add</button>
-			</form>
+
+		<!--middle row  -->
+		<div class="row">
+			<div class="col-xs-12 middle-row">
+				<div class="clock-container">
+					<h1 id="clock" class="clock-display"></h1>
+				</div>
+			</div>
 		</div>
+
+		<!--bottom row  -->
+		<div class="row bottom-row">
+			<!-- <div class="col-xs-12"> -->
+			<!-- <div class="row"> -->
+			<div class="col-xs-3"></div>
+			<div class="col-xs-6">
+				<!--quote  -->
+				<div id="quote" onmouseenter="app.controllers.quoteController.toggleShowAuthor(true)" onmouseout="app.controllers.quoteController.toggleShowAuthor(false)"></div>
+				<div id="quote-author"></div>
+			</div>
+			<div class="col-xs-3">
+				<!--todo list  -->
+				<div class="pane todo-pane">
+					<div id="todo-count"></div>
+					<button type="button" class="show-complete-button" onclick="app.controllers.todoController.toggleShowHide()">show/hide completed</button>
+					<div id="todo"></div>
+					<!--todo input  -->
+					<div class="todo-form-wrapper">
+						<form class="form-style" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+							<input type="text" class="todo-input" name="todoBody" placeholder="what would you like to do?">
+							<button class="btn btn-primary" type="submit">Add</button>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- </div> -->
+			<!-- </div> -->
+		</div>
+
+
+
+		<!--end container fluid  -->
 	</div>
-
-
 
 
 	<!--JS Libraries-->
@@ -59,7 +80,7 @@
 	<script src="app/components/quote/quote-controller.js"></script>
 	<script src="app/components/todo/todo-controller.js"></script>
 	<script src="app/components/clock/clock.js"></script>
-	
+
 
 	<!--Initialize App-->
 	<script src="app/init.js"></script>

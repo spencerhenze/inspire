@@ -58,8 +58,6 @@ function TodoController() {
 
 		template += '</ul>'
 
-		console.log(template)
-
 		document.getElementById('todo').innerHTML = template;
 		iconIndex++;
 

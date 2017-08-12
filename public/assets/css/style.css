@@ -1,3 +1,7 @@
+/* *{
+    outline: 1px solid red;
+} */
+
 body{
     background-size: cover;
     /* background-attachment:fixed; */
@@ -6,11 +10,41 @@ body{
     color: white;
 }
 
+.top-row {
+    display: flex;
+    justify-content: flex-end; 
+}
 
+.middle-row {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock-display{
+    font-size: 8rem;
+}
+
+
+.bottom-row {
+    height: auto;
+    display: flex;
+    align-items: flex-end;
+}
+
+.show-complete-button{
+    text-align: center;
+    margin: 0px 40px;
+}
 
 .todo-form-wrapper {
     display: flex;
     justify-content: center;
+}
+
+.form-style {
+    display:flex;
 }
 
 .todo-input {
@@ -35,10 +69,13 @@ body{
     text-align: left;
     text-shadow: none;
     color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .todo-pane {
-    width: 300px;
     text-align: left;
     -webkit-transition: all .2s ease-out;
     overflow-y: hidden;

@@ -64,10 +64,4 @@ function TodoService() {
 			.then(getTodos)
 			.fail(next)
 	}
-
-
-
-
-	// I KNOW LOTS OF CODE RIGHT
-
 }

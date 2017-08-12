@@ -25,6 +25,7 @@ function ImageController() {
 	}
 
 	function drawImage(img) {
+		console.log(img);
 		// write draw image function here
 		var safeUrl = removeProtocol(img.url);
 		// template = `<img src="${safeUrl}" alt="image of the day">`

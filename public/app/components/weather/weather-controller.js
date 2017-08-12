@@ -8,7 +8,6 @@ function WeatherController() {
 	}
 
 	function drawWeather(weatherData) {
-		console.log(weatherData)
 		var weather = weatherData.weather[0];
 		var city = weatherData.name;
 		var tempF = Math.round((9 / 5) * ((weatherData.main.temp) - 273) + 32) + '°F'
