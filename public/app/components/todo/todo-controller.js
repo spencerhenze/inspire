@@ -12,8 +12,8 @@ function TodoController() {
 		//BUILD YOUR TODO TEMPLATE HERE
 		var template = '<ul class="no-bullets">'
 		//DONT FORGET TO LOOP
-		var toggleIconIndex = 0
-		var toggleIconId = 'TI' + toggleIconIndex;
+		var iconIndex = 0
+		var toggleIconId = 'TI' + iconIndex;
 
 		todosArr.forEach(todo => {
 			var readout = ''
@@ -29,11 +29,12 @@ function TodoController() {
 			// <input type="checkbox" name="${todo.id}" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">
 			// <label><input type="checkbox" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">${readout}</label>
 			// <button type="button" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">Toggle Done</button>
+			// <button class="btn btn-danger" type="button" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Delete</button>
 			template += `
 				<li class = "todo-item">
 					<a href="javascript:void(0)" data-toggle="tooltip" title="toggleDone" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')"><i id="${toggleIconId}"class="fa fa-check-circle-o toggle-icon"></i></a>
-					<p>${readout}</p>
-					<button class="btn btn-danger" type="button" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Delete</button>
+					<p class="todo-text">${readout}</p>
+					<a href="javascript:void(0)" onclick="app.controllers.todoController.removeTodo('${todo._id}')"><i class="fa fa-trash delete-icon"></i></a>
 				</li>
 			`
 		})
@@ -43,7 +44,7 @@ function TodoController() {
 		console.log(template)
 
 		document.getElementById('todo').innerHTML = template;
-		toggleIconIndex ++;
+		iconIndex ++;
 	}
 
 

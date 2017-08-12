@@ -1,5 +1,20 @@
+.todo-form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.todo-input {
+    width: 200px;
+}
+
 .todo-item {
     display: flex;
+    justify-content: space-between;
+    padding: 8px 8px 0px 8px;
+}
+
+.todo-text {
+    text-align: center;
 }
 
 .pane {
@@ -26,4 +41,10 @@
 
 .toggle-icon {
     font-size: 2rem;
+}
+
+.delete-icon {
+    font-size: 2rem;
+    color:#E76067;
+    text-align: right;
 }

@@ -23,12 +23,16 @@
 
 	<!--todo list  -->
 	<div class="pane todo-pane">
-	<div id="todo" ><!--insert todo list here  --></div>
+		<div id="todo">
+			<!--insert todo list here  -->
+		</div>
 		<!--todo input  -->
-		<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
-			<input type="text" name="todoBody" placeholder="what would you like to do?">
-			<button class="btn btn-primary" type="submit">Add</button>
-		</form>
+		<div class="todo-form-wrapper">
+			<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+				<input type="text" class="todo-input" name="todoBody" placeholder="what would you like to do?">
+				<button class="btn btn-primary" type="submit">Add</button>
+			</form>
+		</div>
 	</div>
 
 
