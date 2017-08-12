@@ -1,3 +1,10 @@
+body{
+    background-size: cover;
+    /* background-attachment:fixed; */
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
 .todo-form-wrapper {
     display: flex;
     justify-content: center;

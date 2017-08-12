@@ -27,8 +27,8 @@ function ImageController() {
 	function drawImage(img) {
 		// write draw image function here
 		var safeUrl = removeProtocol(img.url);
-		template = `<img src="${safeUrl}" alt="image of the day">`
-		document.getElementById('background-image').innerHTML = template;
+		// template = `<img src="${safeUrl}" alt="image of the day">`
+		document.body.style.backgroundImage = `url(${safeUrl}`;
 	}
 
 	imageService.getImage(drawImage)
