@@ -32,7 +32,15 @@ function TodoService() {
 			return logError('No Todo Was Found');
 		}
 
-		todoItem.complete = !todoItem.complete
+		// todoItem.complete = !todoItem.complete
+
+		if (todoItem.complete == true) {
+			todoItem.complete = false;
+		}
+		else if (todoItem.complete == false) {
+			todoItem.complete = true;
+		}
+
 
 		//STEP 3: Here is that weird Ajax request because $.put doesn't exist
 		$.ajax({
@@ -41,11 +49,9 @@ function TodoService() {
 			url: '/api/todos/' + todoId,
 			data: JSON.stringify(todoItem)
 		})
-			.then((message) => {
+			.then(getTodos)
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
-				res.send({ message: 'todo status changed successfully' })
-				getTodos() // <-- LEAVE ME ALONE I WORK LIKE THIS
-			})
+
 			.fail(logError) // BECAUSE AJAX IS A UNIQUE SNOWFLAKE AND HAS TO BE DIFFERENT YOU CANT USE .catch
 	}
 

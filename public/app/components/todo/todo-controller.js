@@ -14,15 +14,24 @@ function TodoController() {
 		//DONT FORGET TO LOOP
 
 		todosArr.forEach(todo => {
+			var readout = ''
+
 			//strike out completed item's body properties
-			if (todo.complete == true){
-				todo.body = `<del>${todo.body}</del>`
+			if (todo.complete == true) {
+				readout = `<del>${todo.body}</del>`;
+			}
+			if (todo.complete == false) {
+				readout = todo.body;
 			}
 
 			// <input type="checkbox" name="${todo.id}" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">
+			// <label><input type="checkbox" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">${readout}</label>
 			template += `
-				<label><input type="checkbox" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">${todo.body}</label>
-				<button class="btn btn-danger" type="button" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Delete</button>
+				<div class = todo-item>
+					<button type="button" onclick="app.controllers.todoController.toggleTodoStatus('${todo._id}')">Toggle Done</button>
+					<p>${readout}</p>
+					<button class="btn btn-danger" type="button" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Delete</button>
+				</div>
 			`
 		})
 		// <i class="fa fa-trash" aria-hidden="true" type="button" onclick="app.controllers.todoController.removeTodo(${todo._id})"></i>
@@ -57,6 +66,8 @@ function TodoController() {
 	}
 
 	this.toggleTodoStatus = function (todoId) {
+		debugger
+
 		// asks the service to edit the todo status
 		todoService.toggleTodoStatus(todoId, getTodos)
 		// YEP THATS IT FOR ME
