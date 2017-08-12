@@ -9,13 +9,15 @@
 	<title>Inspire</title>
 </head>
 
-<body id="body">
+<body id="body" onload="app.controllers.clockController.startTime()">
 	<div id="background-image"></div>
 
 	<div id="weather">
 		Your Weather Template
 
 	</div>
+
+	<div id="clock"></div>
 
 	<div id="quote">
 		The Quote
@@ -45,12 +47,15 @@
 	<script src="app/components/image/image-service.js"></script>
 	<script src="app/components/quote/quote-service.js"></script>
 	<script src="app/components/todo/todo-service.js"></script>
+	<script src="app/components/clock/clock-service.js"></script>
 
 	<!--Controllers-->
 	<script src="app/components/weather/weather-controller.js"></script>
 	<script src="app/components/image/image-controller.js"></script>
 	<script src="app/components/quote/quote-controller.js"></script>
 	<script src="app/components/todo/todo-controller.js"></script>
+	<script src="app/components/clock/clock-controller.js"></script>
+	
 
 	<!--Initialize App-->
 	<script src="app/init.js"></script>
