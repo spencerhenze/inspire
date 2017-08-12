@@ -9,7 +9,7 @@
 	<title>Inspire</title>
 </head>
 
-<body id="body" onload="app.controllers.clockController.startTime()">
+<body id="body" onload="myClock()">
 	<div id="background-image"></div>
 
 	<div id="weather">
@@ -17,7 +17,9 @@
 
 	</div>
 
-	<div id="clock"></div>
+	<div class="clock-container">
+		<h1 id="clock"></h1>
+	</div>
 
 	<div id="quote">
 		The Quote
@@ -47,14 +49,14 @@
 	<script src="app/components/image/image-service.js"></script>
 	<script src="app/components/quote/quote-service.js"></script>
 	<script src="app/components/todo/todo-service.js"></script>
-	<script src="app/components/clock/clock-service.js"></script>
+	<!-- <script src="app/components/clock/clock-service.js"></script> -->
 
 	<!--Controllers-->
 	<script src="app/components/weather/weather-controller.js"></script>
 	<script src="app/components/image/image-controller.js"></script>
 	<script src="app/components/quote/quote-controller.js"></script>
 	<script src="app/components/todo/todo-controller.js"></script>
-	<script src="app/components/clock/clock-controller.js"></script>
+	<script src="app/components/clock/clock.js"></script>
 	
 
 	<!--Initialize App-->
