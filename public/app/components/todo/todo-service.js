@@ -62,6 +62,8 @@ function TodoService() {
 			url: '/api/todos/' + todoId
 		})
 			.then(getTodos)
-			.fail(next)
+			.fail(logError)
 	}
+
+
 }
