@@ -52,12 +52,23 @@
 					<!-- <button type="button" class="show-complete-button" onclick="app.controllers.todoController.toggleShowHide()">show/hide completed</button>  -->
 					<div id="todo"></div>
 					<!--todo input  -->
-					<div class="todo-form-wrapper">
+					<!-- <div class="todo-form-wrapper">
 						<form class="form-style" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
 							<input type="text" class="todo-input" name="todoBody" placeholder="what would you like to do?">
 							<button class="btn btn-primary" type="submit">Add</button>
 						</form>
-					</div>
+					</div> -->
+
+					<form id="todo-nav-form-booyah" class="navbar navbar-form navbar-right navbar-inverse" onsubmit="app.controllers.todoController.addTodoFromForm(event)"
+					 role="search">
+						<div id="booyah-form-group" class="form-group">
+							<div class="input-todo-group">
+								<input type="text" class="todo-input todo-input-control" name="todoBody" placeholder="what would you like to do?">
+								<button type="submit" class="fabutton"><i class="fa fa-plus"></i></button>
+							</div>
+							<button type="button" class="btn btn-warning" onclick="app.controllers.todoController.toggleTodoPane()"><span id="show-todo-list-button"></span></button>
+						</div>
+					</form>
 				</div>
 			</div>
 

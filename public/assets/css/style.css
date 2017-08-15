@@ -84,6 +84,13 @@ body{
     width: 200px;
     color: black;
 }
+#todo-nav-form-booyah{
+    border-radius: 0px;
+    margin-top: 0px;
+    background-color:rgba(15,15,15,.925);
+    margin-bottom: 0px;
+    margin-right: 0px;
+}
 
 .todo-item {
     display: flex;
@@ -95,6 +102,12 @@ body{
     text-align: center;
 }
 
+#booyah-form-group {
+    margin-bottom: 10px;
+    display:flex;
+    flex-direction: column;
+
+}
 .pane {
     max-width: 400px;
     background: rgba(15,15,15,.925);
@@ -103,7 +116,7 @@ body{
     text-align: left;
     text-shadow: none;
     color: white;
-    padding: 10px;
+    padding: 10px 10px 0px;
     display: flex;
     flex-direction: column;
     
@@ -113,7 +126,8 @@ body{
     text-align: left;
     -webkit-transition: all .2s ease-out;
     overflow-y: hidden;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
+    margin-right: 0px;
 }
 
 .no-bullets{
@@ -129,4 +143,32 @@ body{
     font-size: 2rem;
     color:#E76067;
     text-align: right;
+}
+.todo-input-control {
+    background: transparent;
+    color: white;
+    border: none;
+    margin-bottom: 8px;
+}
+
+.input-todo-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-input-control::placeholder{
+    color: white;
+}
+
+textarea:focus, input:focus {
+    outline:none;
+}
+
+
+.fabutton {
+    background: none;
+    padding: 0px;
+    border: none;
+    color: 	#428bca;
+    font-size: 2rem;
 }
