@@ -2,7 +2,8 @@
 
 
 
-function drawName(name) {
+function drawGreeting(name) {
+    // this function draws the whole greeting actually
     var today = new Date();
     var hour = today.getHours();
     var timeOfDay = '';
@@ -32,8 +33,6 @@ function drawNameForm() {
 }
 
 
-
-
 function setName (e) {
     
     e.preventDefault();
@@ -47,7 +46,7 @@ function setName (e) {
 function getName() {
     var userName = localStorage.getItem('user-name');
     if (userName) {
-        drawName(userName);
+        drawGreeting(userName);
     }
     else {
         drawNameForm();

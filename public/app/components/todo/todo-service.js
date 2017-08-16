@@ -7,19 +7,18 @@ function TodoService() {
 	}
 
 	this.getTodos = function (draw) {
-		// You probably don't need to change anything in this function.....
 		$.get('/api/todos')
 			.then((todos) => {
-				todoList = todos // <-- WHY IS THIS IMPORTANT???? -- it reassigns the array to the updated data
-				draw(todoList) // <-- WHERE DOES THIS DRAW FUNCTION COME FROM??? -- callback function passed from the controller. 
+				todoList = todos 
+				draw(todoList) 
 			})
 			.fail(logError)
 	}
 
 	this.addTodo = function (todo, getTodos) {
-		// WHAT IS THIS FOR???  -- writing new todo items to the db
+		
 		$.post('/api/todos', todo)
-			.then(getTodos) // <-- DO NOT CHANGE THIS IT WORKS BUT DO YOU KNOW WHY?
+			.then(getTodos) 
 			.fail(logError)
 	}
 
@@ -31,8 +30,6 @@ function TodoService() {
 		if (!todoItem) {
 			return logError('No Todo Was Found');
 		}
-
-		// todoItem.complete = !todoItem.complete
 
 		if (todoItem.complete == true) {
 			todoItem.complete = false;
@@ -50,9 +47,8 @@ function TodoService() {
 			data: JSON.stringify(todoItem)
 		})
 			.then(getTodos)
-			//DO YOU WANT TO DO ANYTHING WITH THIS?
 
-			.fail(logError) // BECAUSE AJAX IS A UNIQUE SNOWFLAKE AND HAS TO BE DIFFERENT YOU CANT USE .catch
+			.fail(logError) 
 	}
 
 	this.removeTodo = function (todoId, getTodos) {  //todoId will come from the HTML through the controller

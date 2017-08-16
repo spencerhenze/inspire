@@ -3,10 +3,6 @@ function WeatherService() {
 	var long = '';
 	var apiUrl = '';
 
-
-
-
-
 	function assignLocation(position, draw) {
 		lat = position.coords.latitude;
 		long = position.coords.longitude;

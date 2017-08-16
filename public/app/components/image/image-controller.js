@@ -1,5 +1,4 @@
 function ImageController() {
-	//Your ImageService is a global constructor function what can you do here if you new it up?
 	var imageService = new ImageService();
 
 	function removeProtocol(url) {
@@ -25,10 +24,7 @@ function ImageController() {
 	}
 
 	function drawImage(img) {
-		console.log(img);
-		// write draw image function here
 		var safeUrl = removeProtocol(img.url);
-		// template = `<img src="${safeUrl}" alt="image of the day">`
 		document.body.style.backgroundImage = `url(${safeUrl}`;
 	}
 

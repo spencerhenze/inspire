@@ -68,10 +68,6 @@ router.delete('/:todoId', (req, res, next) => {
 
 
 
-
-
-
-
 router.use(defaultErrorHandler);
 
 function defaultErrorHandler(err, req, res, next) {

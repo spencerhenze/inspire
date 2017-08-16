@@ -29,7 +29,6 @@ body{
 .clock-display{
     font-family: 'Open Sans', sans-serif;
     font-size: 10rem;
-    /* text-shadow: 0px 0px 1px 5px black; */
     text-align: center;
     color: white;
 }
